@@ -1,0 +1,103 @@
+@import "reset";
+
+$main_color: rgba(51, 39, 14, 0.8);
+$text_color: #000;
+$cup_color: rgb(240, 235, 220);
+$active_cup: rgb(63, 247, 7);
+$rotate45: rotate(45deg);
+
+@mixin transform($rotate45) {
+  -webkit-transform: $rotate45;
+  -ms-transform: $rotate45;
+  -o-transform: $rotate45;
+}
+
+
+body {
+  background: url(../img/bg.jpg) 0 0 no-repeat;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  background-color: $main_color;
+
+  &.wrapper {
+    display: flex;
+    width: 90%;
+    height: 90%;
+   }
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+}
+
+.cup, .mov {
+  fill: $cup_color;
+  transition: 1s;
+}
+
+
+.logo:hover .cup {
+  fill: $active_cup;
+  transition: 1s;
+}
+
+
+.logo_box:hover .wave_smell2 {
+ animation: wave 1.1s ease infinite;
+ animation-direction: alternate;
+ transition: 1s;
+}
+.logo_box:hover .wave_smell {
+  animation: wave2 1.1s ease infinite;
+  animation-direction: alternate;
+  transition: 1s;
+}
+
+
+.logo_box {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: 100px;
+  margin-left: 20px;
+}
+
+.wrapper .logo_box a {
+  font-size: 54px;
+  color: $cup_color;
+  line-height: 100px;
+}
+.wrapper .logo {
+ position: absolute;
+}
+
+ 
+
+
+
+
+
+@keyframes wave {
+  0% {
+    transform:  translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  100% {
+    transform:  translate(-5px, -2px) rotate(-3deg) scale(1.05);
+  }
+}
+@keyframes wave2 {
+  0% {
+    transform:  translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  100% {
+    transform:  translate(-5px, -2px) rotate(-5deg) scale(1.11);
+  }
+}
+
+
+
