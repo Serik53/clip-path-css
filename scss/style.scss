@@ -3,14 +3,16 @@
 $main_color: rgba(51, 39, 14, 0.8);
 $text_color: #000;
 $cup_color: rgb(240, 235, 220);
-$active_cup: rgb(63, 247, 7);
+$active_color: rgb(63, 247, 7);
+$color_red: rgb(163, 17, 17);
 $rotate45: rotate(45deg);
+$rotate90: rotate(90deg);
 
-@mixin transform($rotate45) {
-  -webkit-transform: $rotate45;
-  -ms-transform: $rotate45;
-  -o-transform: $rotate45;
-}
+// @mixin transform($rotate45) {
+//   -webkit-transform: $rotate45;
+//   -ms-transform: $rotate45;
+//   -o-transform: $rotate45;
+// }
 
 
 body {
@@ -27,6 +29,7 @@ header {
         justify-content: space-around;
         width: 90%;
         height: 90%;
+        margin: 0 auto;
 
         .logo_box {
             display: inline-block;
@@ -43,13 +46,13 @@ header {
             &:hover .wave_smell2 {
                 animation: wave 1.1s ease infinite;
                 animation-direction: alternate;
-                transition: 1s;
+                transition: 1.5s;
             }
 
             &:hover .wave_smell {
                 animation: wave2 1.1s ease infinite;
                 animation-direction: alternate;
-                transition: 1s;
+                transition: 1.5s;
             }
 
             .logo {
@@ -61,12 +64,12 @@ header {
               & .cup, 
               & .mov {
                 fill: $cup_color;
-                transition: 1s;
+                transition: 1.5s;
                 }
   
               &:hover .cup {
-                  fill: $active_cup;
-                  transition: 1s;
+                  fill: $active_color;
+                  transition: 1.5s;
               }
             }
         }
@@ -74,26 +77,86 @@ header {
          .nav-links {
               position: relative;
               right: 4%;
-              display: flex;
+              display: flex; 
           
               li {
-                    margin-left: 35%;
+                    margin: 0 15%;
                     text-transform: uppercase;
 
                     a {
-                        font-size: 28px;
+                        font-size: 24px;
                         line-height: 100px;
                         color: $cup_color;
+                        transition: 1.5s;
                     }
 
                     a:hover{
-                        color: $active_cup
+                        color: $active_color;
+                        transition: 1.5s;
                     }
               }
           } 
       
           form {
-            margin: 40px 0;
+             position: relative;
+             margin: 36px 0;
+             
+             .search,
+             .search_btn {
+                height: 28px;
+                border-radius: 3px;
+                font-size: 18px;
+             }
+
+             .search:focus {
+                  box-shadow: inset 0 0 4px 2px $active_color;
+                  transition: 1s;
+             }
+             
+             .search_btn {
+                  position: relative;
+                  left: -15px;
+                  width: 70px;
+             }
+             
+             .reset_btn {
+                  position: relative;
+                  width: 26px;
+                  height: 0px;
+                  background: $main_color;
+                  border: 2px solid $main_color;
+                  border-radius: 2px;
+                  transform: $rotate45;
+                  right: 33px;
+                  top: -6px;
+
+                  &:hover {
+                      background: $color_red;
+                      border: 2px solid $color_red;   
+                  }
+             }
+             .reset_btn::after {
+                  content: "";
+                  position: absolute;
+                  width: 26px;
+                  height: 0px;
+                  background: $main_color;
+                  border: 2px solid $main_color;
+                  border-radius: 2px;
+                  transform: $rotate90;
+                  right: -2px;
+                  top: -2px;   
+             }
+
+             .reset_btn:hover::after {
+              background: $color_red;
+              border: 2px solid $color_red;   
+          }
+
+             .search {
+              padding: 2px 30px 2px 10px;
+
+             }
           }
 
     }
