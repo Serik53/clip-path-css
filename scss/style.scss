@@ -14,67 +14,106 @@ $rotate45: rotate(45deg);
 
 
 body {
-  background: url(../img/bg.jpg) 0 0 no-repeat;
+    background: url(../img/bg.jpg) 0 0 no-repeat;
 }
 
 header {
-  height: 100px;
-  width: 100%;
-  background-color: $main_color;
+    height: 100px;
+    width: 100%;
+    background-color: $main_color;
 
-  &.wrapper {
-    display: flex;
-    width: 90%;
-    height: 90%;
-   }
+    & .wrapper {
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        height: 90%;
+
+        .logo_box {
+            display: inline-block;
+            position: relative;
+            width: auto;
+            height: 100px;
+
+            a {
+                font-size: 54px;
+                color: $cup_color;
+                line-height: 100px;
+                }
+            
+            &:hover .wave_smell2 {
+                animation: wave 1.1s ease infinite;
+                animation-direction: alternate;
+                transition: 1s;
+            }
+
+            &:hover .wave_smell {
+                animation: wave2 1.1s ease infinite;
+                animation-direction: alternate;
+                transition: 1s;
+            }
+
+            .logo {
+              position: absolute;
+              width: 80px;
+              height: 80px;
+              margin: 10px;
+
+              & .cup, 
+              & .mov {
+                fill: $cup_color;
+                transition: 1s;
+                }
+  
+              &:hover .cup {
+                  fill: $active_cup;
+                  transition: 1s;
+              }
+            }
+        }
+         
+         .nav-links {
+              position: relative;
+              right: 4%;
+              display: flex;
+          
+              li {
+                    margin-left: 35%;
+                    text-transform: uppercase;
+
+                    a {
+                        font-size: 28px;
+                        line-height: 100px;
+                        color: $cup_color;
+                    }
+
+                    a:hover{
+                        color: $active_cup
+                    }
+              }
+          } 
+      
+          form {
+            margin: 40px 0;
+          }
+
+    }
 }
 
-.logo {
-  width: 80px;
-  height: 80px;
-  margin: 10px;
-}
-
-.cup, .mov {
-  fill: $cup_color;
-  transition: 1s;
-}
 
 
-.logo:hover .cup {
-  fill: $active_cup;
-  transition: 1s;
-}
 
 
-.logo_box:hover .wave_smell2 {
- animation: wave 1.1s ease infinite;
- animation-direction: alternate;
- transition: 1s;
-}
-.logo_box:hover .wave_smell {
-  animation: wave2 1.1s ease infinite;
-  animation-direction: alternate;
-  transition: 1s;
-}
 
 
-.logo_box {
-  display: inline-block;
-  position: relative;
-  width: auto;
-  height: 100px;
-  margin-left: 20px;
-}
 
-.wrapper .logo_box a {
-  font-size: 54px;
-  color: $cup_color;
-  line-height: 100px;
-}
-.wrapper .logo {
- position: absolute;
-}
+
+
+
+
+
+
+
+
 
  
 
@@ -90,6 +129,7 @@ header {
     transform:  translate(-5px, -2px) rotate(-3deg) scale(1.05);
   }
 }
+
 @keyframes wave2 {
   0% {
     transform:  translate(0px, 0px) rotate(0deg) scale(1);
@@ -98,6 +138,5 @@ header {
     transform:  translate(-5px, -2px) rotate(-5deg) scale(1.11);
   }
 }
-
 
 
